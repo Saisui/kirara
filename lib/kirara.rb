@@ -274,6 +274,7 @@ puts <<-EOF
 # WELCOME TO USE MY GEM
 #
 # KAMI BLESS YOU
+#
 #       github.com/saisui
 #
 #            if u like me
