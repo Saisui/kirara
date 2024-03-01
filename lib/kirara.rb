@@ -84,7 +84,7 @@ HTML_PRETX_TAG_NAMES = %(script style)
 require_relative "kirara/version"
 module Kirara
 end
-class Kirara::DocElm
+class DocElm
 
   private def _hash_to_inline_css hash
     private def _to_css_name str
