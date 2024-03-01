@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary = "A tiny html template. Prefer than String Replace."
   spec.description = "It is a tiny html template. Like DlightJS. If you Like me, please charge."
-  spec.homepage = "www.github.com/saisui"
+  spec.homepage = "https://www.github.com/saisui"
   spec.license = "GPL-3"
   spec.required_ruby_version = ">= 3.0.0"
 
