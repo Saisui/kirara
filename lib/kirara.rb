@@ -193,3 +193,4 @@ class << Kirara
 end
 
 EL = Kirara
+KIRARA = Kirara
