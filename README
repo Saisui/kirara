@@ -1,0 +1,21 @@
+# キララ☆KIRARA :: HTML Template
+
+タイニーウェブペイジー天麩羅です。
+ご使用がありがとうございます！
+
+## インストール :: Installation
+
+`gem install kirara`
+
+## 使い方法::Usage
+
+あたしノボイロ動画待てだ。
+
+## 開発ＨＰ :: Contributing
+
+開発ＨＰはこちらどうぞ
+https://github.com/saisui/kirara
+
+## 使用☆許可::License
+
+The gem is available as open source under the terms of the [GPL-3 License](https://gnu.org/licenses/gpl-3.0.en.html#license-text).
