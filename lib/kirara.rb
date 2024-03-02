@@ -140,6 +140,11 @@ class DocElm
   end
 
   def [] *attrs, **kattrs, &blk
+
+    if attrs.size <= 1 and !blk and attrs[0].is_a?(String)
+      return @name.nil? ? _text_escape(attrs[0]) : "<#{@name}>#{_text_escape(attrs[0])}</#{@name}>"
+    end
+
     atts = _vals_to_inline_singo_attrs(attrs)
     katts = kattrs.empty? ? "" : (" " + _hash_to_inline_attrs(kattrs))
     if HTML_EMPTY_TAG_NAMES.include?(@name.to_s) and blk.nil?
