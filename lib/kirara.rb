@@ -137,13 +137,14 @@ class DocElm
   def initialize name
     @name = name
     @children = []
+    @easymode = false
   end
 
-  def S
+  def listed!
     @easymode = true
   end
 
-  def K
+  def nolis!
     @easymode = false
   end
 
