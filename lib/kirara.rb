@@ -160,12 +160,6 @@ class DocElm
         if @children.size == 0
         then (last.is_a?(Array) ? "" : (HTML_PRETX_TAG_NAMES.include?(@name.to_s) ? ("\n"+last.to_s+"\n") : _text_escape(last.to_s)))
         else @children.map{_1[0]}.join
-          # @children.map do |(elm, typo)|
-          #   case typo
-          #   when :text, :pretext then elm
-          #   when :tag, :line     then elm + "\n"
-          #   end
-          # end.join
         end
       else ""
       end
