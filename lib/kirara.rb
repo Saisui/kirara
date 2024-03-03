@@ -171,8 +171,8 @@ class DocElm
 
   HTML_TAG_NAMES.each do |tag_name|
     define_method tag_name do |*attrs, **kattrs, &blk|
-      newline
       @children << [DocElm.new(tag_name)[*attrs, **kattrs, &blk], :tag]
+      newline
     end
   end
 
