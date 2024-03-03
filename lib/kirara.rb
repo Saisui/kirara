@@ -150,11 +150,6 @@ class DocElm
 
   def [] *attrs, **kattrs, &blk
 
-    # if @easymode # and attrs.size <= 1 and !blk and attrs[0].is_a?(String)
-    if attrs.size <= 1 and !blk and attrs[0].is_a?(String)
-      return @name.nil? ? _text_escape(attrs[0]) : "<#{@name}>#{_text_escape(attrs[0])}</#{@name}>"
-    end
-
     atts = _vals_to_inline_singo_attrs(attrs)
     katts = kattrs.empty? ? "" : (" " + _hash_to_inline_attrs(kattrs))
     if HTML_EMPTY_TAG_NAMES.include?(@name.to_s) and blk.nil?
@@ -164,7 +159,14 @@ class DocElm
         last = self.instance_exec(&blk)
         if @children.size == 0
         then (last.is_a?(Array) ? "" : (HTML_PRETX_TAG_NAMES.include?(@name.to_s) ? ("\n"+last.to_s+"\n") : _text_escape(last.to_s)))
-        else @children.map{_1[0]}.join # ("\n")
+        else
+          rets = ""
+          @children.each do |(elm, typo)|
+            case typo
+            when :text, :pretext then rets << elm
+            when :tag, :line     then rets << elm << "\n"
+            end
+          end
         end
       else ""
       end
