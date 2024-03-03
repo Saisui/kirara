@@ -139,9 +139,17 @@ class DocElm
     @children = []
   end
 
+  def S
+    @easymode = true
+  end
+
+  def K
+    @easymode = false
+  end
+
   def [] *attrs, **kattrs, &blk
 
-    if attrs.size <= 1 and !blk and attrs[0].is_a?(String)
+    if @easymode # and attrs.size <= 1 and !blk and attrs[0].is_a?(String)
       return @name.nil? ? _text_escape(attrs[0]) : "<#{@name}>#{_text_escape(attrs[0])}</#{@name}>"
     end
 
