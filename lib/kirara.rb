@@ -159,7 +159,13 @@ class DocElm
         last = self.instance_exec(&blk)
         if @children.size == 0
         then (last.is_a?(Array) ? "" : (HTML_PRETX_TAG_NAMES.include?(@name.to_s) ? ("\n"+last.to_s+"\n") : _text_escape(last.to_s)))
-        else @children.map{_1[0]}.join
+        else
+          @children.map do |(elm, typo)|
+            case typo
+            when :text, :pretext then elm
+            when :tag, :line     then elm + "\n"
+            end
+          end.join
         end
       else ""
       end
@@ -172,12 +178,7 @@ class DocElm
   HTML_TAG_NAMES.each do |tag_name|
     define_method tag_name do |*attrs, **kattrs, &blk|
       @children << [DocElm.new(tag_name)[*attrs, **kattrs, &blk], :tag]
-      newline
     end
-  end
-
-  def newline
-    @children << ["\n", :text]
   end
 
   def el(name=nil, *attrs, **kattrs, &blk) = echo case name
