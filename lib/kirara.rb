@@ -86,14 +86,14 @@ module Kirara
 end
 class DocElm
 
-  private def _hash_to_inline_css hash
+  def _hash_to_inline_css hash
     private def _to_css_name str
       str.to_s.tr("_", "-").gsub(/[A-Z]/){|upper| "-" + upper.downcase }
     end
     hash.to_a.map{|k, val| "#{_to_css_name(k)}: #{val}" }.join("; ")
   end
 
-  private def _hash_to_inline_attrs hash
+  def _hash_to_inline_attrs hash
     hash.to_a.map do |(k, v)|
       "#{k}=#{
         case v
@@ -109,7 +109,7 @@ class DocElm
       end.join(" ")
   end
 
-  private def _vals_to_inline_singo_attrs attrs
+  def _vals_to_inline_singo_attrs attrs
     attrs.empty? ? "" : " " + attrs.map { |attribute|
       case attribute
       when Numeric then attribute
@@ -128,7 +128,7 @@ class DocElm
     }.join(" ")
   end
 
-  private def _text_escape str
+  def _text_escape str
     str.gsub(/&/, "&amp;")
       .gsub(/</, "&lt;")
       .gsub(/>/, "&gt;")
@@ -150,7 +150,8 @@ class DocElm
 
   def [] *attrs, **kattrs, &blk
 
-    if @easymode # and attrs.size <= 1 and !blk and attrs[0].is_a?(String)
+    # if @easymode # and attrs.size <= 1 and !blk and attrs[0].is_a?(String)
+    if attrs.size <= 1 and !blk and attrs[0].is_a?(String)
       return @name.nil? ? _text_escape(attrs[0]) : "<#{@name}>#{_text_escape(attrs[0])}</#{@name}>"
     end
 
