@@ -162,8 +162,8 @@ class DocElm
         else
           @children.map do |(elm, typo)|
             case typo
-            when :text, :pretext then rets << elm
-            when :tag, :line     then rets << elm << "\n"
+            when :text, :pretext then elm
+            when :tag, :line     then elm + "\n"
             end
           end.join
         end
