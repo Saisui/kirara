@@ -181,14 +181,16 @@ class DocElm
     else self.class.new(name)[*attrs, **kattrs, &blk]
     end
 
-  def say(str) = case str
+  def say!(str) = case str
     when String then @children << [_text_escape(str), :text]
     when Symbol then @children << [str.to_s, :text]
     when Numeric then @children << [str, :text]
     end
 
-  def echo(str) = @children << [str, :pretext]
+  def echo!(str) = @children << [str, :pretext]
 
+  alias echo echo!
+  alias say say!
   alias preprintln echo
   alias println say
 end
