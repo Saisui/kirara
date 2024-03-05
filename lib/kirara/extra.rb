@@ -11,6 +11,5 @@ class DocElm
 end
 
 def templ sym, &pbody
-  pbody ||= method(sym).to_proc
   DocElm.define_method :my, &pbody
 end
