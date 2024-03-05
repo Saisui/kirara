@@ -135,7 +135,7 @@ class DocElm
       .gsub(/>/, "&gt;")
   end
 
-  def initialize name
+  def initialize name=nil
     @name = name
     @children = []
     @easymode = false
