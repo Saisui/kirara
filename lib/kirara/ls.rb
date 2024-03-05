@@ -9,7 +9,3 @@ class DocElm
     end
   end
 end
-
-def templ sym, &pbody
-  DocElm.define_method :my, &pbody
-end

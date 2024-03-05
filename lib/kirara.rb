@@ -82,7 +82,8 @@ HTML_EMPTY_TAG_NAMES = %w(area base br col embed hr img input link meta param so
 HTML_PRETX_TAG_NAMES = %(script style)
 
 require_relative "kirara/version"
-# require_relative "kirara/extra"rb
+require_relative "kirara/templ"
+
 module Kirara
 end
 class DocElm
