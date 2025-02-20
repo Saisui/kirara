@@ -6,6 +6,7 @@ table tbody td textarea tfoot th thead time title tr track ul var video wbr].sor
 HTML_EMPTY_TAG_NAMES = %w[area base br col embed hr img input link meta param source track wbr]
 HTML_PRETX_TAG_NAMES = %w[script style]
 
+
 def h(*tpk,**props, &blk)
   return HTMLFunction if tpk.empty?
   tag, *pk = tpk

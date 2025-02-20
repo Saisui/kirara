@@ -210,7 +210,7 @@ EL = Kirara
 KIRARA = Kirara
 
 
-
+=begin
 puts <<-EOF
 #
 # copyleft by saisui in LICENCE GPL-3
@@ -296,3 +296,4 @@ puts <<-EOF
 #
 #        2024-03-02 4:44:44
 EOF
+=end
