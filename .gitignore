@@ -6,7 +6,7 @@
 /pkg/
 /spec/reports/
 /tmp/
-.vscode
-.github
+/.vscode/
+/.github/
 # rspec failure tracking
 .rspec_status
